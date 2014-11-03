@@ -22,5 +22,3 @@
 		echo 'La connexion à la base de données a échouée : ', $e->getMessage();
 		die();
 	}
-
-?>

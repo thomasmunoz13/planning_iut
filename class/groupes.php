@@ -4,10 +4,10 @@ class Groupes
 {
 	// Représentent l'année et le groupe (correspondant à la base de données)
 
-	var $id;
-	var $annee;
-	var $groupe;
-	var $idtree;
+	private $id;
+	private $annee;
+	private $groupe;
+	private $idtree;
 
 	public function __construct($an = 2, $groupe = 3)
 	{
@@ -114,5 +114,3 @@ class Groupes
 	}// listerGroupes()
 
 }// Groupes
-
-?>

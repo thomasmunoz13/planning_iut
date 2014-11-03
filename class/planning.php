@@ -3,9 +3,9 @@ class Planning
 {
 	// Représentent les attributs de la table planning
 
-	var $id;
-	var $numsem;
-	var $lastsave;
+	private $id;
+	private $numsem;
+	private $lastsave;
 
 	// Identifiant pour le planning
 	var $identifier;
@@ -206,4 +206,3 @@ class Planning
 	}
 
 }// Planning
-?>
