@@ -12,15 +12,25 @@ class Planning
 
 	public function __construct($id = 10, $numsem = 1)
 	{
-			// Récupération des différentes informations
-
+		// Récupération des différentes informations
+		if(is_numeric($_GET['an']) && $_GET['an'] < 3 )
 			$annee = $_GET['an'];
+		else
+			$annee = 2;
+
+		if(is_numeric($_GET['groupe']) && $_GET['groupe'] < 6)
 			$groupe = $_GET['groupe'];
+		else
+			$groupe = 3;
+
+		if(is_numeric($_GET['numsem']) && $_GET['numsem'] < 60)
 			$numsem = $_GET['numsem'];
+		else
+			$numsem = intval($_GET['numsem']);
 
 	
-		$this->id = $id;
-		$this->numsem = $numsem;
+		$this->id = intval($id);
+		$this->numsem = intval($numsem);
 
 		// Connexion à la base de données
 		require 'conf/db.php';
@@ -97,7 +107,7 @@ class Planning
 
 		// URL du fichier
 		$url = 'http://planning.univ-amu.fr/ade/imageEt?identifier=' .$this->identifier. '&projectId=8&idPianoWeek=' .$this->numsem. '&idPianoDay=0,1,2,3,4,5&idTree=' 
-		.$gr->idtree. '&width=1000&height=700&lunchName=REPAS&displayMode=1057855&showLoad=true&ttl=1395570638848000&displayConfId=1';
+		.$gr->idtree. '&width=900&height=600&lunchName=REPAS&displayMode=1057855&showLoad=false&ttl=1405063872880000&displayConfId=59';
 		 
 		// timeout pour éviter les requêtes trop longues
 		$ch = curl_init(str_replace(" ","%20",$url));

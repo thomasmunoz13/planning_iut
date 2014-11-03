@@ -4,14 +4,13 @@
 		// Cette fonction vérifie si les données reçues via
 		// GET sont correctes et les change si besoin
 
-		// Connexion à la base de données
-		if(empty($annee) || !isset($groupe))
-		{
-			$annee = 2;
+		if(!is_numeric($groupe) || empty($groupe) && $groupe != 0)
 			$groupe = 3;
-		}
 
-		if(empty($numsem) || $numsem > 47)
+		if(empty($annee) || !is_numeric($annee))
+			$annee = 2;
+
+		if(empty($numsem) || $numsem > 47 || !is_numeric($numsem))
 		{
 			// On vérifie quelle semaine pour savoir quelle conversion
 			// appliquer
@@ -27,6 +26,7 @@
 			if(date('w') == 0 || date('w') == 6 && date('G') > 12)
 				++$numsem;
 		}
+
 
 		require 'conf/db.php';
 

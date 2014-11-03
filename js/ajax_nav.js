@@ -22,13 +22,7 @@ function getParamValue(param,url)
 }
 
 function listeSemaine(numsem) {
-  var xmlhttp = new XMLHttpRequest();
-  xmlhttp.onreadystatechange = function() {
-    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-      document.getElementById("planning").innerHTML = xmlhttp.responseText;
-    }
-  }
-
-  xmlhttp.open("GET","?an=" + getParamValue('an') + "&groupe=" + getParamValue('groupe') + "&numsem=" + numsem, true);
-  xmlhttp.send();
+  window.history.pushState('', '', '?an=' + getParamValue('an') + '&groupe=' + getParamValue('groupe') + '&numsem'
+				+ getParamValue('numsem'));
+  showPlanning(getParamValue('an'), getParamValue('groupe'), numsem);
 }

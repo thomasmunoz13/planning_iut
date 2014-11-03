@@ -11,8 +11,15 @@ class Groupes
 
 	public function __construct($an = 2, $groupe = 3)
 	{
-		$this->annee = $an;
-		$this->groupe = $groupe;
+		if(is_numeric($an) && $an < 3)
+			$this->annee = $an;
+		else
+			$this->annee = 2;
+		
+		if(is_numeric($groupe) && $groupe < 6)
+			$this->groupe = $groupe;
+		else
+			$this->groupe = 3;
 
 		// Connexion à la base de données
 		require 'conf/db.php';
@@ -33,8 +40,6 @@ class Groupes
 
 	public function byId($id)
 	{
-		$this->id = $id;
-
 		// Connexion à la base de données
 		require 'conf/db.php';
 

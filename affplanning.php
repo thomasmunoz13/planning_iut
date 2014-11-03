@@ -1,9 +1,10 @@
 <?php
 
 	require 'fonctions.php';
+	
 	// Récupérations de la requête GET
 	// et vérification de la validité
-
+	
 	isValide($_GET['an'], $_GET['groupe'], $_GET['numsem']);
 
 	$annee = $_GET['an'];
@@ -17,7 +18,7 @@
 		if($groupe == 0)
 			echo '<center><h2 id="groupe">Année ' .$annee. '</h2></center>';
 		else
-			echo '<center><h2 id="groupe">Groupe ' .$groupe. '</h2></center>';
+			echo '<center><h2 id="groupe">Année ' .$annee. ' Groupe ' .$groupe. '</h2></center>';
 		
 		$gr = new Groupes($annee, $groupe);
 		$pl = new Planning($gr->getId(), $numsem);

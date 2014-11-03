@@ -8,7 +8,7 @@
 ?>
 <html lang="fr">
 	<head>
-		<meta charset="utf-8">
+	<meta charset="utf-8">
     	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     	<meta name="viewport" content="width=device-width, initial-scale=1">
     	<title>Planning #SWAG</title>
@@ -16,7 +16,10 @@
 	    <!-- Bootstrap -->
 	    <link href="css/bootstrap.css" rel="stylesheet">
 	    <link href="css/navbar.css" rel="stylesheet">
-
+	    <link rel="icon" href="img/favicon.png">
+	    <link rel="apple-touch-icon" href="img/touch-icon-iphone.png"/>
+	    <link rel="apple-touch-icon" sizes="72x72" href="img/touch-icon-ipad.png"/>
+	    <link rel="apple-touch-icon" sizes="114x114" href="img/touch-icon-iphone4.png"/>
 	    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 	    <!--[if lt IE 9]>
@@ -70,7 +73,7 @@
 	</div>
 </div>
 		<!-- Script permettant de supprimer le délai de 300ms au clic pour les smartphone (https://github.com/ftlabs/fastclick)-->
-		<script type='application/javascript' src='/path/to/fastclick.js'></script>
+		<script type='application/javascript' src='js/fastclick.js'></script>
 		<!-- Script permettant la navigation en AJAX -->
 		<script src="js/ajax_nav.js"></script>
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
