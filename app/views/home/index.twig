@@ -1,0 +1,73 @@
+{% extends "layout/default" %}
+
+{% block content %}
+<div class="navbar navbar-default" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/"><b>Planning #SWAG</b></a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+               {% for currentYear in years.years %}
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Année {{ currentYear.year }} <span class="caret"></span> </a>
+
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <a href="/view/p/{{ currentYear.year }}/0/{{ years.week }}" >
+                                    Année {{ currentYear.year }}
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            {% for currentGroup in currentYear.groups %}
+                                <li>
+                                    <a href="/view/p/{{ currentYear.year }}/{{ currentGroup.group }}/{{ years.week }}">Groupe {{ currentGroup.group }}</a>
+                                </li>
+                            {% endfor %}
+                         </ul>
+                    </li>
+               {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="jumbotron">
+        <div class="center-block text-center">
+            <h2>
+                {% if group == 0 %}
+                    Année {{ year }}
+                {% else %}
+                    Année {{ year }} groupe {{ group }}
+                {% endif %}
+            </h2>
+            <form method="GET" action="#">
+                <label for="week">Sélectionner la semaine : </label>
+                <select class="list" name="week">
+                   {% for currentWeek in weeks %}
+                       <option value="{{ currentWeek.ID }}" {% if currentWeek.ID == week %} selected {% endif %}>
+                            {{ currentWeek.TITRE }}
+                       </option>
+                   {% endfor %}
+                </select>
+            </form>
+        </div>
+        <div id="planning" class="center-block">
+            <img class="img-responsive" src="{{ img }}" alt="planning"/>
+        </div>
+        <div class="btn-group btn-group-lg center-block">
+            <a href="/view/p/{{ year }}/{{ group }}/{{ week - 1 }}" class="btn btn-default" id="prev"> Précédent </a>
+            <a href="/view/p/{{ year }}/{{ group }}/{{ week + 1 }}" class="btn btn-default" id="next"> Suivant </a>
+        </div>
+    </div>
+    <div class="center-block text-center">
+        <i><a href="//thomasmunoz.fr">Thomas Munoz</a> - Propulsé par <a href="//github.com/thomasmunoz13/SFramework">SFramework</a></i>
+    </div>
+</div>
+{% endblock %}
