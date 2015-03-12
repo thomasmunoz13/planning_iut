@@ -46,20 +46,6 @@ INSERT INTO `GROUPE` (`ID`, `ANNEE`, `GROUPE`, `IDTREE`) VALUES
 (11, 2, 4, 0x3335382c333539);
 
 -- --------------------------------------------------------
-
---
--- Structure de la table `PLANNING`
---
-
-CREATE TABLE `PLANNING` (
-  `ID` int(11) NOT NULL,
-  `NUMSEM` int(11) NOT NULL,
-  `LASTSAVE` int(11) NOT NULL,
-  PRIMARY KEY (`ID`,`NUMSEM`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
--- --------------------------------------------------------
-
 --
 -- Structure de la table `SEMAINE`
 --
@@ -121,13 +107,3 @@ INSERT INTO `SEMAINE` (`ID`, `TITRE`) VALUES
 (44, 0x3239206a75696e2032303135202d203034206a75696c6c65742032303135),
 (45, 0x3036206a75696c6c65742032303135202d203131206a75696c6c65742032303135),
 (46, 0x3133206a75696c6c65742032303135202d203138206a75696c6c65742032303135);
-
---
--- Contraintes pour les tables exportées
---
-
---
--- Contraintes pour la table `PLANNING`
---
-ALTER TABLE `PLANNING`
-  ADD CONSTRAINT `ID` FOREIGN KEY (`ID`) REFERENCES `GROUPE` (`ID`);
