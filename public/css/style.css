@@ -86,7 +86,7 @@ img { margin-bottom:5px; }
 }
 
 .jumbotron { padding-top: 10px; }
-.btn-group { display: table; }
+.btn-group { display: table; margin-bottom: 10px; }
 
 .navbar
 {

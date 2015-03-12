@@ -14,6 +14,7 @@ $(document).ready(function(){
                 $('<img>')
                     .attr('src', data.message)
                     .addClass('img-responsive')
+                    .addClass('center-block')
             );
 
             week = parseInt(week);
@@ -27,6 +28,7 @@ $(document).ready(function(){
 
             $(".jumbotron select").val(week);
             window.history.pushState('', '', '/view/p/' + year + '/' + group + '/' + week);
+            responsive();
         });
     };
     function OnClick(link){
@@ -73,4 +75,33 @@ $(document).ready(function(){
         link = link.split('/').slice(3, link.length);
         changeWeek(link[0], link[1], (parseInt(link[2]) + 1));
     });
+
+    function responsive(){
+        if($(window).height() < 1000 && $(window).height() > 600){
+            var imgHeight = $(window).height() - 300,
+                imgWidth = 1.4285714286 * imgHeight;
+            if(imgWidth > $(window).width()){
+                var imgHeight = $(window).height() - 705,
+                    imgWidth = 1.4285714286 * imgHeight;
+            }
+
+            $('.jumbotron img').height(imgHeight).width(imgWidth);
+            $('.jumbotron').width(imgWidth);
+
+            $(window).resize(function(){
+                if($(window).height() > 600){
+                    var imgHeight = $(window).height() - 300,
+                        imgWidth = 1.4285714286 * imgHeight;
+                    if(imgWidth + 100 > $(window).width()){
+                        var imgHeight = $(window).height() - 705,
+                            imgWidth = 1.4285714286 * imgHeight;
+                    }
+                    $('.jumbotron img').height(imgHeight).width(imgWidth);
+                    $('.jumbotron').width(imgWidth);
+                }
+            })
+        }
+    };
+
+    responsive();
 });

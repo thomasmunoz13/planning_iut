@@ -38,7 +38,7 @@
     </div>
 </div>
 <div class="container">
-    <div class="jumbotron">
+    <div class="jumbotron center-block">
         <div class="center-block text-center">
             <h2>
                 {% if group == 0 %}
@@ -58,12 +58,12 @@
                 </select>
             </form>
         </div>
-        <div id="planning" class="center-block">
-            <img class="img-responsive" src="{{ img }}" alt="planning"/>
-        </div>
         <div class="btn-group btn-group-lg center-block">
             <a href="/view/p/{{ year }}/{{ group }}/{{ week - 1 }}" class="btn btn-default" id="prev"> Précédent </a>
             <a href="/view/p/{{ year }}/{{ group }}/{{ week + 1 }}" class="btn btn-default" id="next"> Suivant </a>
+        </div>
+        <div id="planning" class="center-block">
+            <img class="img-responsive center-block" src="{{ img }}" alt="planning"/>
         </div>
     </div>
     <div class="center-block text-center">
